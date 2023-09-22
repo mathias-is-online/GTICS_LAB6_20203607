@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/GTICS_F.html :: head(title='Sitios - Crear nuevo')}">
+</head>
+<body class="container">
+<div th:insert="~{/GTICS_F.html :: navbar}"></div>
+<h2>Nuevo Sitio</h2>
+<form method="post" th:action="@{/sitios/save}">                <!-- COMPLETAR -->
+    <div class="mb-3">
+        <label for="SiteName">Nombre</label>
+        <input name="SiteName" type="text" class="form-control" id="SiteName">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Pais - Ciudad</label>
+        <select class="form-select" name="location" id="location">
+            <option th:each="paisciudad: ${listapaisciudad}"
+                    th:text="${paisciudad.country + ' / ' +paisciudad.city}" th:value="${paisciudad.locationID}"
+            >Open this select menu</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="InstallationDate">Fecha Instalacion</label>
+        <input name="InstallationDate" type="text" class="form-control" id="InstallationDate">
+    </div>
+
+    <div class="mb-3">
+        <label for="Latitude">Latitud</label>
+        <input name="Latitude" type="text" class="form-control" id="Latitude">
+    </div>
+
+
+    <div class="mb-3">
+        <label for="Longitude">Longitud</label>
+        <input name="Longitude" type="text" class="form-control" id="Longitude">
+    </div>
+
+
+    <a th:href="@{/sitios/list}" class="btn btn-danger">Cancelar</a>                 <!-- COMPLETAR -->
+    <button type="submit" class="btn btn-primary">Registrar</button>                <!-- COMPLETAR -->
+    <div class="row">
+        <div class="form-group"></div>
+    </div>
+</form>
+</body>
+</html>

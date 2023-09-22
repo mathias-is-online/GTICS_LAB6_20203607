@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/GTICS_F.html :: head(title='sITIOS - Lista SITIOS')}">
+
+</head>
+<body>
+<div th:insert="~{/GTICS_F.html :: navbar}"></div>
+<div class="container">
+    <h1>Lista de Sitios</h1>
+
+    <div class="alert alert-primary" role="alert" th:if="${msg != null}" th:text="${msg}">
+        A simple primary alert—check it out!
+    </div>
+
+    <a class="btn btn-primary mt-4 mb-4" th:href="@{/sitios/new}">Nuevo Sitio</a>                 <!-- COMPLETAR -->
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Locacion</th>
+            <th>Fecha instalacion</th>
+            <th>Latitud</th>
+            <th>Longitud</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="sitios, info : ${listasitios}">
+            <td th:text="${info.index + 1}"></td>
+            <td th:text="${sitios.siteName}"></td>
+            <td th:text="${sitios.location.country + ' / ' +sitios.location.city}"></td>
+            <td th:text="${sitios.latitude}"></td>
+            <td th:text="${sitios.longitude}"></td>
+            <td><a class="btn btn-primary"
+                   th:href="@{'/sitios/edit?id=' + ${sitios.siteID}}">Editar</a>
+            </td>
+            <td><a class="btn btn-danger"
+                   th:href="@{'/sitios/delete?id=' + ${sitios.siteID}}">Borrar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+</div>
+</body>
+</html>
