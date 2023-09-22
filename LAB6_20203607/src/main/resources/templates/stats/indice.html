@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/GTICS_F.html :: head(title='estadisticas')}">
+
+</head>
+<body>
+<div th:insert="~{/GTICS_F.html :: navbar}"></div>
+<body class="container">
+<h1>Estadisticas</h1>
+<a th:href="@{/estadisticas/intervenciones}">Lista de cantidad de intervenciones por sitio existente</a><br />                <!-- COMPLETAR -->
+<a th:href="@{/estadisticas/mayorintervencion}">El sitio o sitios con más intervenciones</a><br />                <!-- COMPLETAR -->
+<a th:href="@{/estadisticas/menorintervencion}">El sitio o sitios con más intervenciones</a><br>                <!-- COMPLETAR -->
+</body>
+</html>

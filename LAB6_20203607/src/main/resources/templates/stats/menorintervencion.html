@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/GTICS_F.html :: head(title='El sitio o sitios con menos intervenciones')}">
+
+</head>
+<body>
+<div th:insert="~{/GTICS_F.html :: navbar}"></div>
+<div class="container">
+    <h1>El sitio o sitios con menos intervenciones</h1>
+
+
+    <a class="btn btn-primary mt-4 mb-4" th:href="@{/estadisticas}">Regresar</a>                 <!-- COMPLETAR -->
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>NombreSitio</th>
+            <th>Cantidad de intervenciones</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="sitios, info : ${listasitios}">
+            <td th:text="${info.index + 1}"></td>
+            <td th:text="${sitios.getNombreSitio()}"></td>
+            <td th:text="${sitios.getCantidad()}"></td>
+
+
+        </tr>
+        </tbody>
+    </table>
+
+
+
+</div>
+</body>
+</html>
